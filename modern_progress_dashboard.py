@@ -145,3 +145,10 @@ st.subheader("📊 Study Hours Trend")
 if len(df) > 0:
     chart = df.groupby("Date")["Hours"].sum()
     st.line_chart(chart)
+    if st.sidebar.button("Reset All Data"):
+
+     if os.path.exists(FILE):
+        os.remove(FILE)
+
+    st.sidebar.success("All data deleted ✅")
+    st.rerun()
